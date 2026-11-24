@@ -1,0 +1,15 @@
+name: OneBody
+version: '${version}'
+main: io.github.beddeak.onebody.OneBodyPlugin
+api-version: '26.2'
+author: beddeak
+description: '일심동체 - mod by beddeak(침댁)'
+commands:
+  onebody:
+    description: 일심동체 게임 관리 (접속자 자동 참가)
+    aliases: [ob]
+    usage: /<command> <start|stop|status|reload>
+permissions:
+  onebody.admin:
+    description: 일심동체 시작, 종료, 상태 조회 및 설정 재적용
+    default: op

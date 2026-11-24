@@ -1,0 +1,78 @@
+config-version: 7
+
+# startTick <= 입력 tick < startTick + tolerance. 기본 2틱은 약 100ms.
+sync-tolerance-ticks: 2
+
+damage:
+  # 매 피해 주기마다의 원시 피해량. 3.0 = 방어구/효과가 없을 때 하트 1.5칸.
+  amount-per-tick: 3.0
+  # 실패가 계속되면 20틱(정상 TPS에서 1초) 후 첫 피해, 이후 같은 간격.
+  interval-ticks: 20
+
+sharing:
+  health: true
+  hunger: true
+  inventory: true
+
+actions:
+  jump: true
+  # 웅크리기/달리기는 현재 상태 비교. 모두 켜거나 모두 해제하면 복구.
+  sneak: true
+  sprint: true
+  attack: true
+  attack-player: true
+  block-break: true
+  block-place: true
+  item-use: true
+  door-use: true
+  switch-use: true
+  container-open: true
+  # 음식 섭취는 허기만 공유하며 행동 판정에 포함하지 않습니다.
+  # 일반 피격은 원인/피해량을 구분하지 않고 하나로, 낙하 피해만 별도.
+  take-damage: true
+  fall-damage: true
+  # 실제 수평 이동/정지만 비교. 방향은 자유, 전원 이동 또는 전원 정지하면 복구.
+  move: true
+
+actionbar:
+  # 실패 이후에는 해결할 행동명을 항상 표시합니다.
+  enabled: true
+  reveal-players: false
+
+startup:
+  title: '&b일심동체'
+  subtitle: '&7mod by beddeak(침댁)'
+  fade-in-ticks: 10
+  stay-ticks: 40
+  fade-out-ticks: 10
+
+# 모든 메시지는 & 색상 코드를 사용. 성공/실패 채팅은 별도로 끌 수 있음.
+messages:
+  prefix: '&8[&b일심동체&8] '
+  game-started: '&a게임이 시작되었습니다.'
+  game-stopped: '&c게임이 종료되었습니다.'
+  too-few: '&c살아 있는 참가자가 2명 이상 필요합니다.'
+  start-failed: '&c공유 상태를 안전하게 초기화하지 못했습니다. 서버 로그를 확인하세요.'
+  success: '&a일심동체 성공!'
+  failed: '&c일심동체 실패!'
+  success-enabled: true
+  failed-enabled: true
+  required-action: '&e해야 할 행동: '
+  action-names:
+    jump: '&f&l점프'
+    sneak: '&f&l웅크리기 &f(모두 웅크리기 또는 모두 해제)'
+    sprint: '&f&l스프린트 &f(모두 달리기 또는 모두 해제)'
+    attack: '&f&l몹·엔티티 공격'
+    attack-player: '&f&l플레이어 공격'
+    block-break: '&f&l블록 파괴'
+    block-place: '&f&l블록 설치'
+    item-use: '&f&l아이템 사용 &f(포션·발사체·양동이)'
+    door-use: '&f&l문 조작 &f(문·다락문·울타리문 열기/닫기)'
+    switch-use: '&f&l레버·버튼 조작'
+    container-open: '&f&l보관함 열기 &f(상자·통·셜커상자)'
+    move: '&f&l이동 상태 맞추기 &f(모두 이동 또는 모두 정지, 방향 자유)'
+    take-damage: '&f&l피격 &f(낙하 제외)'
+    fall-damage: '&f&l낙하 피해'
+  no-permission: '&c권한이 없습니다.'
+  reloaded: '&a설정을 다시 읽었습니다. 현재 Challenge의 판정/피해 설정은 완료까지 유지됩니다.'
+  reload-failed: '&c설정을 읽지 못했습니다. 기존 설정을 유지합니다. 서버 로그를 확인하세요.'
